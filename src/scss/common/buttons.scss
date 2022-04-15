@@ -1,0 +1,23 @@
+.btn {
+   display: inline-block;
+   background-color: #F4E041;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 26px;
+   letter-spacing: 0;
+   text-align: center;
+   border-radius: 80px;
+   min-width: 100px;
+   padding: 4px 19px;
+   cursor: pointer;
+   border: none;
+   font-family: inherit;
+
+   &:hover {
+      background-color: #FFE302;
+   }
+   &:disabled {
+      background-color: #B4B4B4;
+      color: hsla(0, 0%, 100%, 0.87);
+   }
+}

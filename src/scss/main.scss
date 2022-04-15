@@ -1,0 +1,243 @@
+@import 'utils/vars';
+@import 'utils/reset';
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+html {
+   line-height: $mainLineHeight;
+   font-size: $mainFontSize;
+   color: $mainFontColor;
+   height: 100%;
+   @media screen and (max-width: $desktopWidth) {
+      font-size: 16px;
+   }
+   @media screen and (max-width: $tableWidth) {
+      font-size: 15px;
+   }
+   @media screen and (max-width: $phoneWidth) {
+      font-size: 14px;
+   }
+}
+
+body {
+   font-family: $mainFont;
+   font-size: $mainFontSize;
+   font-weight: $mainFontWeight;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   margin: 0;
+   padding: 0;
+   text-rendering: optimizelegibility;
+   // background-color: #f7f7f7;
+}
+
+*,
+*:before,
+*:after {
+   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   margin: 0;
+}
+
+a {
+   text-decoration: none;
+}
+
+ul,
+li {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+
+footer {
+   margin-top: 60px;
+}
+
+section {
+   + section {
+      margin-top: 140px;
+   }
+}
+
+/*section,
+.section {
+   position: relative;
+   padding: 40px 0;
+   @media screen and (max-width: $desktopWidth) {
+      padding: 36px 0;
+   }
+   @media screen and (max-width: $desktopWidth) {
+      padding: 28px 0;
+   }
+   @media screen and (max-width: $desktopWidth) {
+      padding: 20px 0;
+   }
+}*/
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   margin: 0 auto;
+}
+
+.wrapper-content {
+   display: flex;
+   flex-direction: column;
+   min-height: 70vh;
+   row-gap: 140px;
+   //margin-top: 60px; // if header is fixed do 60px+headerHeight
+   background-color: $backgrountColor;
+}
+
+.container {
+   margin: 0 auto;
+   padding: 0 16px;
+   min-width: 360px;
+   width: 100%;
+
+   @media screen and (min-width: $tableWidth) {
+      max-width: $desktopWidth;
+      padding: 0 32px;
+   }
+   @media screen and (min-width: $smDesktopWidth) {
+      max-width: $desktopWidth;
+      padding: 0 60px;
+   }
+   @media screen and (min-width: $desktopWidth) {
+      max-width: $desktopWidth;
+      padding: 0;
+   }
+
+}
+
+.view {
+   width: 100%;
+   max-width: 700px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.header-content {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: #ffffff;
+   height: 60px;
+   overflow: hidden;
+   .header-logo{
+      transform: translateY(-1px);
+   }
+   .header-buttons {
+      display: flex;
+      column-gap: 10px;
+   }
+}
+
+h1 {
+   font-size: 40px;
+   line-height: 1em;
+   text-align: center;
+   margin-bottom: 21px;
+}
+
+.definition {
+   text-align: center;
+}
+
+.greetings {
+   color: #FFFFFF;
+   background-image: url('../assets/greetings360.jpg');
+   background-position: center;
+   height: 500px;
+   position: relative;
+   text-align: center;
+   background-repeat: no-repeat;
+
+   .container {
+      @media screen and (min-width: $phoneWidth) {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-top: 0;
+      }
+      margin-top: 40px;
+      height: 100%;
+   }
+
+   @media screen and (min-width:$smPhoneWidth + 1px) {
+      background-image: url('../assets/greetings768.jpg');
+   }
+   @media screen and (min-width: $tableWidth +1px) {
+      background-image: url('../assets/greetings1024.jpg');
+   }
+   @media screen and (min-width: $smDesktopWidth ) {
+      height: 650px;
+   }
+   @media screen and (min-width: $desktopWidth +1px) {
+      background-image: url('../assets/greetings2056.jpg');
+   }
+
+   .greetings-content {
+      max-width: 380px;
+      z-index: 10;
+   }
+
+   .signup {
+      margin-top: 32px;
+   }
+}
+
+.employers-cards {
+   display: grid;
+   gap: 20px;
+   margin-top: 50px;
+   margin-bottom: 50px;
+
+   @media screen and (min-width: $phoneWidth) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+   }
+   @media screen and (min-width: $smDesktopWidth) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 29px;
+   }
+
+   .employers-cards-wrapper {
+      display: block;
+      overflow: hidden;
+   }
+}
+
+.employers-show-more {
+   display: flex;
+   justify-content: center;
+}
+
+.card {
+   background-color: #fff;
+   border-radius: 10px;
+   text-align: center;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   row-gap: 20px;
+   justify-content: space-between;
+
+   .card-info > div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+   }
+}
+
+
+
+@import './common/_common';
