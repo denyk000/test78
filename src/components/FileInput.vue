@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-field file-input"
+    class="input text-field file-input"
     :class="{
       'input--has-state': message,
       'input--is-dirty': file,

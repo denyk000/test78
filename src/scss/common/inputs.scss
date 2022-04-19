@@ -9,8 +9,10 @@
    color: $colorSecondary !important;
 }
 
-.input-label {
-   color: $colorLabel;
+.input {
+   &__label {
+      color: $colorLabel;
+   }
 }
 
 .text-field {
@@ -24,10 +26,6 @@
    transition: border .3s cubic-bezier(.25, .8, .5, 1);
    border-radius: 4px;
    position: relative;
-
-   /* &:not(.error--text) fieldset {
-       color: $colorGrey;
-    }*/
 
    &.input {
       &--is-focused {
@@ -73,7 +71,7 @@
       transition-timing-function: cubic-bezier(.25, .8, .25, 1);
    }
 
-   .input-label {
+   .input__label {
       height: 20px;
       line-height: 16px;
       letter-spacing: normal;
@@ -85,7 +83,7 @@
       position: absolute;
       cursor: inherit;
 
-      &.input-label--active {
+      &--active {
          transform: translateY(-24px) scale(.75);
       }
    }
@@ -177,7 +175,7 @@
       }
    }
 
-   .text-field__details {
+   &__details {
       margin-bottom: 8px;
       padding-inline: 16px;
    }
@@ -188,11 +186,13 @@
    display: grid;
    gap: 7px;
    margin-bottom: 23px;
-   p{
+
+   p {
       margin-bottom: 3px;
       margin-top: -7px
    }
 }
+
 .radio {
    align-items: center;
    display: flex;
@@ -252,9 +252,10 @@
       }
    }
 
-   .input__control .input__slot{
+   .input__control .input__slot {
       padding-inline: 0;
    }
+
    .file-input__text {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -284,7 +285,7 @@
       top: 0;
    }
 
-    .input__prepend-inner {
+   .input__prepend-inner {
       border: solid 1px currentColor;
       color: $mainFontColor;
       z-index: 1;
@@ -323,7 +324,7 @@
    -ms-user-select: none;
    user-select: none;
 
-   .icon__svg {
+   &__svg {
       height: 24px;
       width: 24px;
    }

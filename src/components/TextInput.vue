@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-field"
+    class="input text-field"
     :class="{
       'input--is-dirty': modelValue,
       'input--is-focused': hasFocus,
@@ -19,9 +19,9 @@
         <div class="text-field__slot">
           <label
             :for="uid"
-            class="input-label"
+            class="input__label"
             :class="{
-              'input-label--active': hasFocus || modelValue,
+              'input__label--active': hasFocus || modelValue,
               'primary--text': hasFocus && isValid,
               'error--text': !isValid,
             }"
