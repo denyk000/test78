@@ -31,19 +31,34 @@
     </section>
     <section class="signup" id="signup">
       <h1>
-        Working with
-        <wbr />
-        POST request
+        <template v-if="!listKey">
+          Working with
+          <wbr />
+          POST request
+        </template>
+        <template v-else>User successfully registered</template>
       </h1>
-      <register-form @change="scrollToSection" />
+      <transition name="fade" mode="out-in">
+        <register-form v-if="!listKey" @change="showSuccess" />
+        <div v-else class="signup-success">
+          <img
+            class="success-image"
+            src="../../public/success-image.svg"
+            alt="User successfully registered"
+          />
+        </div>
+      </transition>
     </section>
   </div>
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import BaseButton from "@/components/BaseButton";
-import CardList from "@/components/CardList";
-import RegisterForm from "@/components/RegisterForm";
+const CardList = defineAsyncComponent(() => import("@/components/CardList"));
+const RegisterForm = defineAsyncComponent(() =>
+  import("@/components/RegisterForm")
+);
 export default {
   name: "TheMain",
   components: { BaseButton, CardList, RegisterForm },
@@ -53,12 +68,16 @@ export default {
     };
   },
   methods: {
-    scrollToSection(userId) {
+    showSuccess(userId) {
       this.listKey = userId;
-      this.$refs.employers?.scrollIntoView({
-        block: "start",
-        behavior: "smooth",
-      });
+      setTimeout(
+        () =>
+          this.$refs.employers?.scrollIntoView({
+            block: "start",
+            behavior: "smooth",
+          }),
+        5000
+      );
     },
   },
 };

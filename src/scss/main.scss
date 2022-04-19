@@ -41,6 +41,7 @@ body {
    padding: 0;
    text-rendering: optimizelegibility;
    // background-color: #f7f7f7;
+
 }
 
 *,
@@ -60,6 +61,11 @@ h6 {
 
 a {
    text-decoration: none;
+   color: currentColor;
+
+   &:not(.btn):hover {
+      color: $colorSecondary;
+   }
 }
 
 ul,
@@ -153,9 +159,20 @@ h1 {
    text-align: center;
 }
 
+#signup {
+   .signup-success {
+      margin-top: 50px;
+   }
+
+   .success-image {
+      display: block;
+      margin-inline: auto;
+   }
+}
+
 .greetings {
    color: #FFFFFF;
-   background-image: url('../assets/greetings360.jpg');
+   background-image: url('../assets/images/greetings360.jpg');
    background-position: center;
    height: 500px;
    position: relative;
@@ -173,15 +190,15 @@ h1 {
    }
 
    @media screen and (min-width: $smPhoneWidth + 1px) {
-      background-image: url('../assets/greetings768.jpg');
+      background-image: url('../assets/images/greetings768.jpg');
    }
 
    @media screen and (min-width: $tableWidth +1px) {
-      background-image: url('../assets/greetings1024.jpg');
+      background-image: url('../assets/images/greetings1024.jpg');
    }
    @media screen and (min-width: $smDesktopWidth) {
       height: 650px;
-      background-image: url('../assets/greetings2056.jpg');
+      background-image: url('../assets/images/greetings2056.jpg');
    }
 
    .wrapper-greetings {
@@ -208,16 +225,5 @@ h1 {
    }
 }
 
-
-.list-enter-active,
-.list-leave-active {
-   transition: all 1s cubic-bezier(.25, .8, .5, 1);;
-}
-
-.list-enter-from,
-.list-leave-to {
-   opacity: 0;
-   transform: translateY(30px);
-}
 
 @import './common/_common';

@@ -9,18 +9,30 @@
         loading="lazy"
       />
     </div>
-    <div class="card-fullname">{{ user.name }}</div>
+    <div class="card-fullname">
+      <span v-tippy="{ content: user.name }">{{ user.name }}</span>
+    </div>
     <div class="card-info">
       <div>{{ user.position }}</div>
-      <div>{{ user.email }}</div>
-      <div>{{ user.phone }}</div>
+      <div>
+        <a :href="`mailto:${user.email}`" v-tippy="{ content: user.email }">{{
+          user.email
+        }}</a>
+      </div>
+      <div>
+        <a :href="`tel:${user.phone}`">{{ user.phone }}</a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { directive } from "vue-tippy";
 export default {
   name: "BaseCard",
+  directives: {
+    tippy: directive,
+  },
   props: {
     user: {
       type: Object,

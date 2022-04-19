@@ -1,49 +1,51 @@
 @import "../utils/vars.scss";
+
 .employers-cards {
-    display: grid;
-    gap: 20px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+   display: grid;
+   gap: 20px;
+   margin-top: 50px;
+   margin-bottom: 50px;
 
-@media screen and (min-width: $phoneWidth) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-}
-@media screen and (min-width: $smDesktopWidth) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 29px;
-}
+   @media screen and (min-width: $phoneWidth) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+   }
+   @media screen and (min-width: $smDesktopWidth) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 29px;
+   }
 
-.employers-cards-wrapper {
-    display: block;
-    overflow: hidden;
-}
+   .employers-cards-wrapper {
+      display: block;
+      overflow: hidden;
+   }
 }
 
 .employers-show-more {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    justify-content: space-between;
+   background-color: #fff;
+   border-radius: 10px;
+   text-align: center;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   row-gap: 20px;
+   justify-content: space-between;
 
-.card-fullname, .card-info > div {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.card-photo img{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+   .card-fullname, .card-info > div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+   }
+
+   .card-photo img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+   }
 }
