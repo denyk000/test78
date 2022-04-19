@@ -16,12 +16,12 @@
           mind. They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </p>
-        <base-button class="signup">Sign up</base-button>
+        <base-button class="signup" link="#signup">Sign up</base-button>
       </div>
     </div>
   </section>
   <div class="container">
-    <section class="employers" ref="employers">
+    <section class="employers" ref="employers" id="users">
       <h1>
         Working with
         <wbr />
@@ -29,7 +29,7 @@
       </h1>
       <card-list :key="listKey" />
     </section>
-    <section class="signup">
+    <section class="signup" id="signup">
       <h1>
         Working with
         <wbr />

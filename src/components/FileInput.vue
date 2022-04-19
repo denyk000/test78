@@ -15,10 +15,10 @@
         </div>
         <fieldset aria-hidden="true"></fieldset>
         <div class="text-field__slot">
-          <label :for="uid" class="label">{{ label }}</label>
           <div class="file-input__text file-input__text--placeholder">
             <span>{{ filename }}</span>
           </div>
+          <label :for="uid" class="label">{{ label }}</label>
           <input
             :id="uid"
             ref="input"

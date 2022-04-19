@@ -6,8 +6,8 @@
           <img src="Logo.svg" alt="logo" />
         </div>
         <div class="header-buttons">
-          <base-button>Users</base-button>
-          <base-button>Sign up</base-button>
+          <base-button link="#users">Users</base-button>
+          <base-button link="#signup">Sign up</base-button>
         </div>
       </div>
     </div>

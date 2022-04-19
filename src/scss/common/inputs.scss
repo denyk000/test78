@@ -244,11 +244,15 @@
       }
    }
 
+   .input__control .input__slot{
+      padding-inline: 0;
+   }
    .file-input__text {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       max-width: calc(100% - 80px);
+      padding-inline: 16px;
 
       &--placeholder {
          color: $colorLabel;
@@ -277,7 +281,7 @@
       color: $mainFontColor;
       z-index: 1;
       top: 0;
-      left: -16px;
+      left: 0;
       display: flex;
       justify-content: center;
       padding-inline: 15px 14px;
