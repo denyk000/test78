@@ -26,7 +26,6 @@
         :id="uid"
         role="radio"
         type="radio"
-        name="radio-3486"
         :value="value"
         v-model="$parent.value"
       />

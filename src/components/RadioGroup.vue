@@ -12,6 +12,9 @@ export default {
     };
   },
   watch: {
+    modelValue(v) {
+      this.value = v;
+    },
     value() {
       this.$emit("update:modelValue", this.value);
     },

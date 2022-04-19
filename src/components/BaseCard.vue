@@ -5,7 +5,7 @@
         :src="photo"
         :alt="user.name"
         :title="user.name"
-        @error="getPhoto"
+        @error="getPhotoCover"
         loading="lazy"
       />
     </div>
@@ -33,7 +33,7 @@ export default {
     };
   },
   methods: {
-    getPhoto() {
+    getPhotoCover() {
       this.photo = "photo-cover.svg";
     },
   },

@@ -1,17 +1,19 @@
 // Font
 $mainFont: 'Nunito', sans-serif;
-
-// Size
-$backgrountColor: #f8f8f8;
-$mainFontColor: hsla(0, 0%, 0%, 0.87);
-$colorSecondary: #00BDD3;
-$colorPrimary:#F4E041;
-
-
 $mainFontSize: 16px;
 $mainFontWeight: 400;
 $mainLineHeight: 1.625;
 
+// color
+$backgrountColor: #f8f8f8;
+$mainFontColor: hsla(0, 0%, 0%, 0.87);
+$colorSecondary: #00BDD3;
+$colorPrimary: #F4E041;
+$colorError: #cb3d40;
+$colorGrey: #D0CFCF;
+$colorLabel: #7E7E7E;
+
+// breakpoints
 $lgDesktopWidth: 2560px;
 $desktopWidth: 1170px;
 $smDesktopWidth: 1024px;

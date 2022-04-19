@@ -21,13 +21,13 @@
     </div>
   </section>
   <div class="container">
-    <section class="employers">
+    <section class="employers" ref="employers">
       <h1>
         Working with
         <wbr />
         GET request
       </h1>
-      <card-list />
+      <card-list :key="listKey" />
     </section>
     <section class="signup">
       <h1>
@@ -35,7 +35,7 @@
         <wbr />
         POST request
       </h1>
-      <register-form />
+      <register-form @change="scrollToSection" />
     </section>
   </div>
 </template>
@@ -47,6 +47,20 @@ import RegisterForm from "@/components/RegisterForm";
 export default {
   name: "TheMain",
   components: { BaseButton, CardList, RegisterForm },
+  data() {
+    return {
+      listKey: 0,
+    };
+  },
+  methods: {
+    scrollToSection(userId) {
+      this.listKey = userId;
+      this.$refs.employers?.scrollIntoView({
+        block: "start",
+        behavior: "smooth",
+      });
+    },
+  },
 };
 </script>
 

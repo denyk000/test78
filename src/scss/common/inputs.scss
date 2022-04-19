@@ -1,13 +1,16 @@
 @import "../utils/vars";
 
 .error--text {
-   color: #cb3d40 !important;
-   caret-color: #cb3d40 !important;
+   color: $colorError !important;
+   caret-color: $colorError !important;
 }
 
 .primary--text {
    color: $colorSecondary !important;
-   caret-color: $colorSecondary !important;
+}
+
+.input-label {
+   color: $colorLabel;
 }
 
 .text-field {
@@ -23,32 +26,38 @@
    position: relative;
 
    /* &:not(.error--text) fieldset {
-       color: #D0CFCF;
+       color: $colorGrey;
     }*/
 
    &.input {
-      &--is-focused fieldset {
-         border: 2px solid currentColor;
+      &--is-focused {
+         input::placeholder {
+            color: $colorGrey;
+         }
 
+         fieldset {
+            border: 2px solid currentColor;
+
+         }
       }
 
       &--has-state fieldset {
-         border: 2px solid currentColor;
+         border-color: currentColor;
       }
    }
 
 
-   &:not(.input--is-focused):not(.input--has-state) {
+   &:not(.input--has-state) {
       .input__slot:hover {
          fieldset {
-            color: $colorSecondary;
+            border-color: $colorSecondary;
          }
       }
    }
 
    fieldset {
       border-collapse: collapse;
-      border-color: #D0CFCF;
+      border-color: $colorGrey;
       border-style: solid;
       border-width: 1px;
       border-radius: inherit;
@@ -74,6 +83,7 @@
       left: 0;
       right: auto;
       position: absolute;
+      cursor: inherit;
 
       &.input-label--active {
          transform: translateY(-24px) scale(.75);
@@ -90,6 +100,11 @@
       background-color: transparent;
       border-style: none;
       font-family: inherit;
+
+      &::placeholder {
+         color: transparent;
+         transition: color 0.3s cubic-bezier(.25, .8, .5, 1);
+      }
    }
 
    .input__control {
@@ -139,6 +154,7 @@
             position: relative;
             align-items: center;
             cursor: text;
+            width: 100%;
          }
       }
    }
@@ -167,18 +183,7 @@
    }
 }
 
-.register-form {
-   margin-inline: auto;
-   display: grid;
-   gap: 24px;
-   margin-top: 50px;
-   max-width: 380px;
 
-   .radio-group {
-      display: grid;
-      gap: 10px;
-   }
-}
 
 .radio {
    align-items: center;
@@ -188,7 +193,7 @@
    cursor: pointer;
 
    .input--selection-controls__input {
-      color: #D0CFCF;
+      color: $colorGrey;
       display: inline-flex;
       flex: 0 0 auto;
       height: 24px;
@@ -221,6 +226,71 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+   }
+}
+
+.file-input {
+   overflow: hidden;
+
+   &.input--is-dirty {
+      .file-input__text {
+         color: initial;
+      }
+
+      &.input--has-state {
+         .input__prepend-inner, fieldset {
+            border: 2px solid $colorError;
+         }
+      }
+   }
+
+   .file-input__text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: calc(100% - 80px);
+
+      &--placeholder {
+         color: $colorLabel;
+      }
+   }
+
+   input[type=file] {
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      max-width: 0;
+      width: 0;
+      flex: 1 1 auto;
+      line-height: 20px;
+      padding: 8px 0 8px;
+      min-width: 0;
+   }
+
+   fieldset {
+      top: 0;
+   }
+
+    .input__prepend-inner {
+      border: solid 1px currentColor;
+      color: $mainFontColor;
+      z-index: 1;
+      top: 0;
+      left: -16px;
+      display: flex;
+      justify-content: center;
+      padding-inline: 15px 14px;
+      width: 83px;
+      align-items: center;
+      height: 54px;
+      position: relative;
+      border-radius: 4px 0 0 4px;
+
+      + .input__control fieldset {
+         border-top-left-radius: 0;
+         border-bottom-left-radius: 0;
+      }
    }
 }
 

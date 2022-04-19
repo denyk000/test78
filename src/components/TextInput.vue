@@ -1,19 +1,19 @@
 <template>
   <div
-    class="input--is-label-active text-field"
+    class="text-field"
     :class="{
-      'input--is-dirty': value,
-      'input--is-focused': focus,
-      'input--has-state': rule,
-      'error--text': rule,
-      'primary--text': focus && !rule,
+      'input--is-dirty': modelValue,
+      'input--is-focused': hasFocus,
+      'input--has-state': !isValid,
+      'error--text': !isValid,
+      'primary--text': hasFocus && isValid,
     }"
   >
     <div class="input__control">
       <div class="input__slot">
         <fieldset aria-hidden="true">
           <legend :style="labelStyle">
-            <span class="legend-helper">{{ label }}</span>
+            <span ref="helper" class="legend-helper">{{ label }}</span>
           </legend>
         </fieldset>
         <div class="text-field__slot">
@@ -21,8 +21,9 @@
             :for="uid"
             class="input-label"
             :class="{
-              'input-label--active': focus || value,
-              'primary--text': focus && !rule,
+              'input-label--active': hasFocus || modelValue,
+              'primary--text': hasFocus && isValid,
+              'error--text': !isValid,
             }"
             >{{ label }}</label
           ><input
@@ -31,12 +32,16 @@
             @blur="togleFocus"
             type="text"
             v-model.trim="computedValue"
+            :maxlength="maxlength"
+            :placeholder="placeholder"
           />
         </div>
       </div>
-      <div class="text-field__details" :class="{ 'error--text': rule }">
+      <div class="text-field__details" :class="{ 'error--text': !isValid }">
         <div class="input-messages">
-          <div class="input-messages__message" v-if="rule">{{ rule }}</div>
+          <div class="input-messages__message" v-if="message">
+            {{ message }}
+          </div>
         </div>
       </div>
     </div>
@@ -45,43 +50,59 @@
 
 <script>
 import input from "@/mixins/input";
+
 export default {
   name: "TextInput",
   mixins: [input],
-  props: ["value", "label"],
-  emits: ["update:value"],
+  props: {
+    modelValue: { type: String },
+    label: { type: String },
+    placeholder: String,
+    message: String,
+    maxlength: {
+      type: [Number, String],
+      String,
+      default: 255,
+      validator(value) {
+        return !Number.isNaN(Number(value));
+      },
+    },
+  },
+  emits: ["update:modelValue"],
   data() {
     return {
-      focus: false,
-      labelStyle: null,
-      message: "Error text",
+      hasFocus: false,
     };
   },
   mounted() {
     this.setLabelStyle();
   },
   methods: {
-    setLabelStyle() {
-      const label = this.$el.getElementsByClassName("legend-helper")[0];
-      const width = label.getBoundingClientRect().width + 1 + "px";
-      this.labelStyle =
-        (this.focus || this.value) && this.label ? { width } : { width: 0 };
-    },
+    setLabelStyle() {},
     togleFocus(e) {
-      this.focus = e.type === "focus";
+      this.hasFocus = e.type === "focus";
+      if (this.validateOnBlur && !this.hasFocus) {
+        this.validate();
+      }
       this.$nextTick(() => this.setLabelStyle());
     },
   },
   computed: {
-    rule() {
-      return this.value && this.value?.length < 10 ? "Error text" : "";
+    isValid() {
+      return !this.message;
+    },
+    labelStyle() {
+      const width = this.$refs.helper?.getBoundingClientRect().width + 1 + "px";
+      return (this.hasFocus || this.modelValue) && this.label
+        ? { width }
+        : { width: 0 };
     },
     computedValue: {
       get() {
-        return this.value;
+        return this.modelValue;
       },
       set(value) {
-        this.$emit("update:value", value);
+        this.$emit("update:modelValue", value);
       },
     },
   },
