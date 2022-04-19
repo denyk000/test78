@@ -20,7 +20,7 @@
         :message="v$.fields.phone.$errors[0]?.$message"
         placeholder="(+)380XXXXXXXXX"
       />
-      <div class="radio-group" style="margin-top: -7px">
+      <div class="radio-group">
         <p>Select your position</p>
         <radio-group v-model="v$.fields.position_id.$model">
           <radio-input
