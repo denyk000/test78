@@ -43,7 +43,7 @@
         <div v-else class="signup-success">
           <img
             class="success-image"
-            src="../../public/success-image.svg"
+            :src="require('@/assets/images/success-image.svg')"
             alt="User successfully registered"
           />
         </div>
@@ -69,15 +69,13 @@ export default {
   },
   methods: {
     showSuccess(userId) {
-      this.listKey = userId;
-      setTimeout(
-        () =>
-          this.$refs.employers?.scrollIntoView({
-            block: "start",
-            behavior: "smooth",
-          }),
-        5000
-      );
+      setTimeout(() => {
+        this.$refs.employers?.scrollIntoView({
+          block: "start",
+          behavior: "smooth",
+        });
+        this.listKey = userId;
+      }, 5000);
     },
   },
 };

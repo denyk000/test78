@@ -42,10 +42,19 @@
       white-space: nowrap;
    }
 
-   .card-photo img {
+   .card-photo {
+      border-radius: 50%;
       width: 70px;
       height: 70px;
-      border-radius: 50%;
-      object-fit: cover;
+      overflow: hidden;
+      margin: 0 auto;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzUiIGN5PSIzNSIgcj0iMzUiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMzUgNzBhMzUgMzUgMCAxIDEgMC03MCAzNSAzNSAwIDAgMSAwIDcwWk0xMS4yIDU3LjZjMTMgMTMuNyAzNSAxMy41IDQ3LjUgMGwtLjgtMWExNC44IDE0LjggMCAwIDAtNC41LTNjLTIuMi0xLTQuNS0xLjgtNi43LTIuN2wtMy0xLjVhMy40IDMuNCAwIDAgMS0yLTN2LTMuM2MwLS43LjEtMS4zLjYtMiAxLjctMi4xIDIuNi00LjYgMi42LTcuNCAwLS40LjItLjcuNS0xIC43LS42IDEuNC0xLjIgMS42LTIuMmwuNS0zLjFjMC0uOSAwLTEuNy0xLjEtMS44bC40LTMuNmMuMS0yLjQtLjEtNC44LTEuNC03YTUuNSA1LjUgMCAwIDAtNC44LTMgMyAzIDAgMCAxLS44LS4yIDE2IDE2IDAgMCAwLTguNC0uNiAxMCAxMCAwIDAgMC04LjIgMTEuNWwuNSAzYy0uOCAwLTEuMi40LTEuMiAxLjEgMCAyLjIgMCA0LjMgMiA1LjguNC40LjUuOS42IDEuNWwuMyAyLjRjLjMgMS44IDEuNCAzLjMgMi4zIDQuOS4zLjMuNS44LjUgMS4zdjMuNmMwIDEuMy0uNiAyLjItMS42IDNMMjUgNTBsLTMuNyAxLjVjLTIuNyAxLTUuMiAyLTcuNiAzLjYtMSAuNi0xLjggMS40LTIuNiAyLjRaIiBmaWxsPSIjRDBDRkNGIi8+PC9zdmc+");
+
+      img {
+         object-fit: cover;
+         &:not(.loaded) {
+            visibility: hidden;
+         }
+      }
    }
 }

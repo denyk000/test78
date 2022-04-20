@@ -3,7 +3,12 @@
     <div class="container">
       <div class="header-content">
         <div class="header-logo">
-          <img src="Logo.svg" alt="logo" width="104" height="26" />
+          <img
+            :src="require('@/assets/images/Logo.svg')"
+            alt="logo"
+            width="104"
+            height="26"
+          />
         </div>
         <div class="header-buttons">
           <base-button link="#users">Users</base-button>

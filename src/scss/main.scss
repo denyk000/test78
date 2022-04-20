@@ -163,6 +163,7 @@ h1 {
 #signup {
    .signup-success {
       margin-top: 50px;
+      text-align: center;
    }
 
    .success-image {
@@ -173,11 +174,13 @@ h1 {
 
 .greetings {
    color: #FFFFFF;
-   background-image: url('../assets/images/greetings360.jpg');
+   background: url('../assets/images/greetings360.jpg'), url("../assets/images/greetings-progressive.jpg");
    background-position: center;
+   width: auto;
    height: 500px;
    position: relative;
    text-align: center;
+   background-size: auto, cover;
    background-repeat: no-repeat;
 
    .container {
@@ -191,15 +194,25 @@ h1 {
    }
 
    @media screen and (min-width: $smPhoneWidth + 1px) {
-      background-image: url('../assets/images/greetings768.jpg');
+      background: url('../assets/images/greetings768.jpg'), url("../assets/images/greetings-progressive.jpg");
+      background-size: auto, cover;
+      background-repeat: no-repeat;
+      background-position: center;
    }
 
    @media screen and (min-width: $tableWidth +1px) {
-      background-image: url('../assets/images/greetings1024.jpg');
+      background: url('../assets/images/greetings1024.jpg'), url("../assets/images/greetings-progressive.jpg");
+      background-size: auto, cover;
+      background-repeat: no-repeat;
+      background-position: center;
    }
+
    @media screen and (min-width: $smDesktopWidth) {
       height: 650px;
-      background-image: url('../assets/images/greetings2056.jpg');
+      background: url('../assets/images/greetings2056.jpg'), url("../assets/images/greetings-progressive.jpg");
+      background-size: auto, 1170px;
+      background-repeat: no-repeat;
+      background-position: center;
    }
 
    .wrapper-greetings {

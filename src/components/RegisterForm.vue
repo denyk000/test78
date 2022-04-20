@@ -6,12 +6,14 @@
         :message="v$.fields.name.$errors[0]?.$message"
         label="Your name"
         maxlength="60"
+        :disabled="pending"
       />
       <text-input
         v-model="v$.fields.email.$model"
         :message="v$.fields.email.$errors[0]?.$message"
         label="Email"
         maxlength="100"
+        :disabled="pending"
       />
       <text-input
         v-model="v$.fields.phone.$model"
@@ -19,6 +21,7 @@
         maxlength="13"
         :message="v$.fields.phone.$errors[0]?.$message"
         placeholder="(+)380XXXXXXXXX"
+        :disabled="pending"
       />
       <div class="radio-group">
         <p>Select your position</p>
@@ -28,6 +31,7 @@
             :value="pos.id"
             :key="pos.id"
             :label="pos.name"
+            :disabled="pending"
           />
         </radio-group>
       </div>

@@ -2,11 +2,14 @@
   <div class="card">
     <div class="card-photo">
       <img
-        :src="photo"
+        :src="user.photo"
         :alt="user.name"
         :title="user.name"
-        @error="getPhotoCover"
         loading="lazy"
+        height="70"
+        width="70"
+        :class="{ loaded: photoLoaded }"
+        @load="photoLoaded = true"
       />
     </div>
     <div class="card-fullname">
@@ -41,13 +44,8 @@ export default {
   },
   data() {
     return {
-      photo: this.user.photo,
+      photoLoaded: false,
     };
-  },
-  methods: {
-    getPhotoCover() {
-      this.photo = "photo-cover.svg";
-    },
   },
 };
 </script>
