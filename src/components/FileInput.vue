@@ -18,7 +18,7 @@
           <div class="file-input__text file-input__text--placeholder">
             <span>{{ filename }}</span>
           </div>
-          <label :for="uid" class="label">{{ label }}</label>
+          <label :for="uid" class="input__label">{{ label }}</label>
           <input
             :id="uid"
             ref="input"
